@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="resources/css/main.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="resources/js/main.js"></script>
+</head>
+
+<body>
+    <div id="head">Live Bitcoin Price Index</div>
+    <div id="time">
+        <p class="Updated">Updated:</p>
+        <p class="UpdatedISO">UpdatedISO:</p>
+    </div>
+    <div id="disclaimer">
+        Lorem ipsum dolor sit amet consectetur adipiscing elit felis, lacinia
+        platea
+    </div>
+
+    <table id="table">
+        <tr class="heading">
+            <td style="border-top-left-radius: 30px;">Currency</td>
+            <td>Currency CODE</td>
+            <td style="border-top-right-radius: 30px;">Price</td>
+        </tr>
+        <tr class="usd"></tr>
+        <tr class="gbp"></tr>
+        <tr class="eur"></tr>
+    </table>
+    <p id="message">UPDATED!</p>
+    <button id="button" onclick="refresh()">REFRESH</button>
+
+    <div id="info">Made with ♥ by Anshuman Singh
+        <br /><img src="resources/images/github.png" height="20px" width="20px"/>
+        <a href="https://github.com/MrSingh2000">Github</a>
+        <br /><img src="resources/images/linkedin.png" height="20px" width="20px"/>
+        <a href="https://linkedin.com/in/anshuman-singh-856991201">LinkedIn</a>
+    </div>
+
+    <script>
+        var url = "https://api.coindesk.com/v1/bpi/currentprice.json";
+
+        $(document).ready(init());
+
+        $.getJSON(url, function (data) {
+            $(".Updated").html(`Updated: ${data.time.updated}`);
+            $(".UpdatedISO").html(`UpdatedISO: ${data.time.updatedISO}`);
+            $("#disclaimer").html(`${data.disclaimer}`)
+        })
+
+        function init() {
+            $.getJSON(url, function (data) {
+                $(".one").html(data.time.updated);
+
+                var usd = `<td>${data.bpi.USD.description}</td>
+              <td>${data.bpi.USD.code}</td>
+              <td>${data.bpi.USD.rate}</td>  `
+
+                var gbp = `<td>${data.bpi.GBP.description}</td>
+              <td>${data.bpi.GBP.code}</td>
+              <td>${data.bpi.GBP.rate}</td>  `
+
+                var eur = `<td style="border-bottom-left-radius: 30px;">${data.bpi.EUR.description}</td>
+              <td>${data.bpi.EUR.code}</td>
+              <td style="border-bottom-right-radius: 30px;">${data.bpi.EUR.rate}</td>  `
+
+                $(".usd").html(usd);
+                $(".gbp").html(gbp);
+                $(".eur").html(eur);
+            });
+        }
+
+
+        var refresh = () => {
+            init();
+            setTimeout(() => { $("#message").css("display", "none"); }, 1000);
+
+            $("#message").css("display", "unset");
+        }
+    </script>
+</body>
+
+</html>
