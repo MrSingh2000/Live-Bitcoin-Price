@@ -1,6 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Piazzolla:ital,wght@1,200&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Piazzolla:ital,wght@1,200&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
 body {
   background-color: #f6e58d;
 }
@@ -26,7 +27,7 @@ body {
   margin-top: 20px;
   margin-bottom: 20px;
   background-color: #7ed5df9a;
-  font-family: 'Piazzolla', serif;
+  font-family: "Piazzolla", serif;
 }
 #table {
   width: 100%;
@@ -77,28 +78,44 @@ body {
   background: #51909765;
 }
 
-#message{
-    position: absolute;
-    font-size: 30px;
-    left: 40%;
-    top: 35%;
-    text-align: center;
-    width: 200px;
-    height: fit-content;
-    background-color: rgba(255, 255, 0, 0.918);
-    border-radius: 20px;
-    box-shadow: 3px 3px 3px 2px rgb(100, 94, 94);
-    display: none;
-}
-#info{
-    position: relative;
-    text-align: center;
-    margin-top: 40px;
-    font-size: 25px;
-    background-color: #ff7979;
-    font-family: 'Dancing Script', cursive;
+#message {
+  position: absolute;
+  font-size: 30px;
+  left: 40vw;
+  text-align: center;
+  width: 200px;
+  height: fit-content;
+  background-color: rgba(255, 255, 0, 0.918);
+  border-radius: 20px;
+  box-shadow: 3px 3px 3px 2px rgb(100, 94, 94);
+  display: none;
+  z-index: 1;
+  font-family: 'Kaushan Script', cursive;
+  animation: mess 3s ease 0s 1 normal;
+  
 }
 
-a{
-    text-decoration: none;
+#info {
+  position: relative;
+  text-align: center;
+  margin-top: 40px;
+  font-size: 25px;
+  background-color: #ff7979;
+  font-family: "Dancing Script", cursive;
+}
+
+a {
+  text-decoration: none;
+}
+
+@keyframes mess {
+  0% {
+    left: 0%;
+  }
+  50% {
+    left: 50%;
+  }
+  100% {
+    left: 85%;
+  }
 }

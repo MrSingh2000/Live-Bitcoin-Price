@@ -31,15 +31,17 @@
         <tr class="gbp"></tr>
         <tr class="eur"></tr>
     </table>
+
     <p id="message">UPDATED!</p>
     <button id="button" onclick="refresh()">REFRESH</button>
 
     <div id="info">Made with ♥ by Anshuman Singh
-        <br /><img src="resources/images/github.png" height="20px" width="20px"/>
+        <br /><img src="resources/images/github.png" height="20px" width="20px" />
         <a href="https://github.com/MrSingh2000">Github</a>
-        <br /><img src="resources/images/linkedin.png" height="20px" width="20px"/>
+        <br /><img src="resources/images/linkedin.png" height="20px" width="20px" />
         <a href="https://linkedin.com/in/anshuman-singh-856991201">LinkedIn</a>
     </div>
+
 
     <script>
         var url = "https://api.coindesk.com/v1/bpi/currentprice.json";
@@ -77,7 +79,7 @@
 
         var refresh = () => {
             init();
-            setTimeout(() => { $("#message").css("display", "none"); }, 1000);
+            setTimeout(() => { $("#message").css("display", "none"); }, 3000);
 
             $("#message").css("display", "unset");
         }
